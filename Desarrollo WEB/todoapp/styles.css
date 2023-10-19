@@ -3,6 +3,7 @@ body {
   text-align: center;
   background-color: #707499;
   margin: 0;
+  overflow: hidden;
 }
 
 h1 {
@@ -90,7 +91,4 @@ footer img {
   margin: 0 5px;
 }
 
-a {
-  color: #c4c3c3;
-  text-decoration: none;
-}
+

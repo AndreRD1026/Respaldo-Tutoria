@@ -1,0 +1,14 @@
+{
+    "tareas": [
+        {
+            "hora": "00:23:46",
+            "tarea": "aa",
+            "estado": false
+        },
+        {
+            "hora": "00:23:48",
+            "tarea": "ss",
+            "estado": true
+        }
+    ]
+}

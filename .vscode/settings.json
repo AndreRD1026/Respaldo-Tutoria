@@ -8,5 +8,6 @@
         "array": "cpp",
         "iosfwd": "cpp",
         "new": "cpp"
-    }
+    },
+    "docwriter.language": "Spanish"
 }
