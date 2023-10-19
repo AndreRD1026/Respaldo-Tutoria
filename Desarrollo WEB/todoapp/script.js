@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const nuevaTarea = document.createElement('div');
         nuevaTarea.classList.add('task');
+        nuevaTarea.classList.add('card')
         nuevaTarea.textContent = tareaTexto;
 
         nuevaTarea.addEventListener('click', function () {

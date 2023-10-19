@@ -1,21 +1,96 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #707499;
+  margin: 0;
+}
+
+h1 {
+  color: #ffffff;
 }
 
 #tareas {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .task {
-    margin: 5px 0;
-    padding: 5px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.card {
+  background-color: #f2ccb8;
+  border-radius: 5px;
+  color: #69514c;
+  text-align: center;
+  text-transform: uppercase;
+  animation: nuevaTarea 0.5s;
+}
+
+.card:hover {
+  background-color: #e6b8a9;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
+  background-color: #ab908b;
+  animation: tareaCompletada 0.7s;
+}
+
+#tareaInput {
+  border-radius: 5px;
+  width: 50%;
+}
+
+@keyframes nuevaTarea {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes tareaCompletada {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #555a7d;
+}
+
+footer img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+a {
+  color: #c4c3c3;
+  text-decoration: none;
 }
