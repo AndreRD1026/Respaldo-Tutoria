@@ -3,7 +3,8 @@
 #include <array>
 #include <string>
 #include <fstream>
-#include <cmath>
+#include <math.h>
+#include "listaOperaciones.cpp"
 
 using namespace std;
 
@@ -31,15 +32,15 @@ void reporte_html(const vector<array<string, TAMANIO_ARRAY>> &operaciones);
 
 int main(int argc, char **argv)
 {
-    // calculator();
+    //calculator();
     // funcion_for();
     // funcion_if();
     // funcion_while();
     // funcion_switch();
-    // funcion_reporte();
+    funcion_reporte();
     // calculator_menu();
     // calculator_menu2();
-    lectura_archivo();
+    //lectura_archivo();
 }
 
 void calculator()
@@ -354,8 +355,8 @@ void funcion_switch()
 
 void funcion_reporte()
 {
-    vector<array<string, TAMANIO_ARRAY>> operaciones;
-
+    //vector<array<string, TAMANIO_ARRAY>> operaciones;
+    ListaOperaciones *operaciones = new ListaOperaciones();
     int opc = 0;
     do
     {
@@ -381,30 +382,32 @@ void funcion_reporte()
         // cout << "3. Multiplicación " << endl;
         // cout << "4. División " << endl;
         cin >> opc;
-        array<string, TAMANIO_ARRAY> nuevaOperacion;
+        //array<string, TAMANIO_ARRAY> nuevaOperacion;
+        Operaciones *nuevaOperacion = new Operaciones();
 
         switch (opc)
         {
 
         case 1:
-            nuevaOperacion[0] = "suma";
+            
+            nuevaOperacion->tipo = "suma";
             cout << "Seleccionamos opcion suma" << endl;
             cout << "Ingresa n1: " << endl;
             cin >> n1;
-            nuevaOperacion[1] = to_string(n1);
+            nuevaOperacion->numero1 = n1;
             cout << "Ingresa n2 " << endl;
             cin >> n2;
-            nuevaOperacion[2] = to_string(n2);
+            nuevaOperacion->numero2 = n2;
             suma = n1 + n2;
             resultado = suma;
             cout << "Resultado : " << resultado << endl;
 
-            nuevaOperacion[3] = to_string(resultado);
-            operaciones.push_back(nuevaOperacion);
+            nuevaOperacion->resultado = resultado;
+            operaciones->insertarFinal(nuevaOperacion);
             break;
 
         case 2:
-            nuevaOperacion[0] = "resta";
+            nuevaOperacion->tipo = "resta";
             cout << "Seleccionamos opcion resta" << endl;
             cout << "Ingresa n1: " << endl;
             cin >> n1;
@@ -413,14 +416,14 @@ void funcion_reporte()
             resta = n1 - n2;
             resultado = resta;
             cout << "Resultado : " << resultado << endl;
-            nuevaOperacion[1] = to_string(n1);
-            nuevaOperacion[2] = to_string(n2);
-            nuevaOperacion[3] = to_string(resultado);
-            operaciones.push_back(nuevaOperacion);
+            nuevaOperacion->numero1 = n1;
+            nuevaOperacion->numero2 = n2;
+            nuevaOperacion->resultado = resultado;
+            operaciones->insertarFinal(nuevaOperacion);
             break;
 
         case 3:
-            nuevaOperacion[0] = "multi";
+            nuevaOperacion->tipo = "multi";
             cout << "Seleccionamos opcion multi" << endl;
             cout << "Ingresa n1: " << endl;
             cin >> n1;
@@ -429,14 +432,14 @@ void funcion_reporte()
             multi = n1 * n2;
             resultado = multi;
             cout << "Resultado : " << resultado << endl;
-            nuevaOperacion[1] = to_string(n1);
-            nuevaOperacion[2] = to_string(n2);
-            nuevaOperacion[3] = to_string(resultado);
-            operaciones.push_back(nuevaOperacion);
+            nuevaOperacion->numero1 = n1;
+            nuevaOperacion->numero2 = n2;
+            nuevaOperacion->resultado = resultado;
+            operaciones->insertarFinal(nuevaOperacion);
             break;
 
         case 4:
-            nuevaOperacion[0] = "div";
+            nuevaOperacion->tipo = "div";
             cout << "Seleccionamos opcion div" << endl;
             cout << "Ingresa n1: " << endl;
             cin >> n1;
@@ -454,10 +457,10 @@ void funcion_reporte()
                 div = n1 / n2;
                 resultado = div;
                 cout << "Resultado : " << resultado << endl;
-                nuevaOperacion[1] = to_string(n1);
-                nuevaOperacion[2] = to_string(n2);
-                nuevaOperacion[3] = to_string(resultado);
-                operaciones.push_back(nuevaOperacion);
+                nuevaOperacion->numero1 = n1;
+                nuevaOperacion->numero2 = n2;
+                nuevaOperacion->resultado = resultado;
+                operaciones->insertarFinal(nuevaOperacion);
                 break;
             }
 
@@ -485,7 +488,8 @@ void funcion_reporte()
 
         case 7:
             // reporte_html(operaciones);
-            imprimirOperaciones(operaciones);
+            operaciones->imprimir();
+            operaciones->crearHTML();
             break;
 
         case 8:
